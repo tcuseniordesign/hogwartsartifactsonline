@@ -24,6 +24,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+          cache: 'maven'
 
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
@@ -44,6 +45,7 @@ jobs:
       - name: Build and push container image to registry
         uses: docker/build-push-action@v2
         with:
+          context: ./
           push: true
           tags: ghcr.io/${{ env.REPO }}:${{ github.sha }}
           file: ./Dockerfile
