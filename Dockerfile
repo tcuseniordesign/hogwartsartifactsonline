@@ -12,4 +12,5 @@ COPY --from=builder application/snapshot-dependencies/ ./
 COPY --from=builder application/application/ ./
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
 
-EXPOSE 8080 # This is very necessary
+# Exposing port is very necessary
+EXPOSE 8080
