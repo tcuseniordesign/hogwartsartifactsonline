@@ -18,6 +18,7 @@ import java.util.List;
 @Service
 @Transactional
 public class UserService implements UserDetailsService {
+
     private UserDao userDao;
     private PasswordEncoder encoder;
 
@@ -83,4 +84,5 @@ public class UserService implements UserDetailsService {
         // Otherwise, wrap the returned user instance in a MyUserPrincipal instance
         return new MyUserPrincipal(hogwartsUser); // return the principal
     }
+
 }

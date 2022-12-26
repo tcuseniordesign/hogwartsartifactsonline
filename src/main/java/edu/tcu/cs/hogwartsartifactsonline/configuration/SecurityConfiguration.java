@@ -39,6 +39,7 @@ import java.security.interfaces.RSAPublicKey;
 
 @Configuration
 public class SecurityConfiguration {
+
     @Value("${jwt.public.key}")
     RSAPublicKey key;
 

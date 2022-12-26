@@ -24,6 +24,7 @@ import java.util.Map;
 // so will inevitably not catch all things
 @ControllerAdvice
 public class MyCustomExceptionsHandler {
+
     @ResponseBody
     @ExceptionHandler(ObjectNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
@@ -83,4 +84,5 @@ public class MyCustomExceptionsHandler {
         System.out.println(ex.getClass());
         return new Result(false, StatusCode.INTERNAL_SERVER_ERROR, "A server internal error occurs.", ex.getMessage());
     }
+
 }

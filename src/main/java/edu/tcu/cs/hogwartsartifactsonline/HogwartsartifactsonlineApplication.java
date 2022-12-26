@@ -16,4 +16,5 @@ public class HogwartsartifactsonlineApplication {
     public IdWorker idWorker() {
         return new IdWorker(1, 1); // create a bean for IdWorker
     }
+
 }

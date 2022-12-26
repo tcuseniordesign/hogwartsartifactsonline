@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 @Entity
 public class HogwartsUser implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -59,4 +60,5 @@ public class HogwartsUser implements Serializable {
     public void setRoles(String roles) {
         this.roles = roles;
     }
+
 }

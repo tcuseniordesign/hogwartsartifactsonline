@@ -9,6 +9,7 @@ import java.util.List;
 
 @Entity
 public class Wizard implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -56,4 +57,5 @@ public class Wizard implements Serializable {
         // remove this artifact from artifacts
         this.artifacts.remove(artifact);
     }
+
 }

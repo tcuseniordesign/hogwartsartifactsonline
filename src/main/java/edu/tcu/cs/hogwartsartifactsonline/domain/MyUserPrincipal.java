@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MyUserPrincipal implements UserDetails {
+
     private HogwartsUser hogwartsUser;
     private List<GrantedAuthority> authorities;
 
@@ -67,4 +68,5 @@ public class MyUserPrincipal implements UserDetails {
     public HogwartsUser getUser() {
         return hogwartsUser;
     }
+
 }

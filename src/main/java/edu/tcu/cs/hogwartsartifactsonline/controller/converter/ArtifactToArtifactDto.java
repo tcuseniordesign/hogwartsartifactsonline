@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ArtifactToArtifactDto implements Converter<Artifact, ArtifactDto> {
+
     @Override
     public ArtifactDto convert(Artifact source) {
         ArtifactDto artifactDto = new ArtifactDto();
@@ -19,4 +20,5 @@ public class ArtifactToArtifactDto implements Converter<Artifact, ArtifactDto> {
         }
         return artifactDto;
     }
+
 }

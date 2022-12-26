@@ -5,6 +5,7 @@ used to encapsulate data prepared by server side, this object will be serialized
 sent back to front end
  */
 public class Result {
+
     private boolean flag; //true: success, false: not success
     private Integer code; //return status code. e.g. 200
     private String message; // message
@@ -57,4 +58,5 @@ public class Result {
     public void setData(Object data) {
         this.data = data;
     }
+
 }

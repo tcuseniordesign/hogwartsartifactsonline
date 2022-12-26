@@ -29,4 +29,5 @@ public class AuthController {
         System.out.println(authentication.getAuthorities());
         return new Result(true, StatusCode.SUCCESS, "JWT Token and User Info", authService.createLoginInfo(authentication));
     }
+
 }

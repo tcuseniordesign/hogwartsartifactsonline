@@ -60,4 +60,5 @@ public class ArtifactService {
                 .orElseThrow(() -> new ObjectNotFoundException("artifact", artifactId));
         artifactDao.deleteById(artifactId);
     }
+
 }

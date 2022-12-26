@@ -5,6 +5,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 
 public class IdWorker {
+
     private final static long twepoch = 1288834974657L;
     private final static long workerIdBits = 5L;
     private final static long datacenterIdBits = 5L;
@@ -101,4 +102,5 @@ public class IdWorker {
         }
         return id;
     }
+
 }

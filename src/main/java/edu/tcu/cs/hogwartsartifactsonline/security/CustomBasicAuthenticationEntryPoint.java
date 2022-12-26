@@ -32,4 +32,5 @@ public class CustomBasicAuthenticationEntryPoint implements AuthenticationEntryP
         response.addHeader("WWW-Authenticate", "Basic realm=\"Realm\"");
         resolver.resolveException(request, response, null, authException);
     }
+
 }

@@ -14,6 +14,7 @@ import java.util.List;
 @Service
 @Transactional
 public class WizardService {
+
     private WizardDao wizardDao;
     private ArtifactDao artifactDao;
 
@@ -58,4 +59,5 @@ public class WizardService {
         }
         wizard.addArtifact(artifactToBeAssigned);
     }
+
 }

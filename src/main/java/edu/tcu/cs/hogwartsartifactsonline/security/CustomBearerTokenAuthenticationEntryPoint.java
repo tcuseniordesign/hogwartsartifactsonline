@@ -17,6 +17,7 @@ import java.io.IOException;
  */
 @Component
 public class CustomBearerTokenAuthenticationEntryPoint implements AuthenticationEntryPoint {
+
     @Autowired
     @Qualifier("handlerExceptionResolver")
     private HandlerExceptionResolver resolver;
@@ -25,4 +26,5 @@ public class CustomBearerTokenAuthenticationEntryPoint implements Authentication
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         resolver.resolveException(request, response, null, authException);
     }
+
 }

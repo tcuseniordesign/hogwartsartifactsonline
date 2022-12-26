@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserToUserDto implements Converter<HogwartsUser, UserDto> {
+
     @Override
     public UserDto convert(HogwartsUser source) {
         final UserDto userDto = new UserDto();
@@ -17,4 +18,5 @@ public class UserToUserDto implements Converter<HogwartsUser, UserDto> {
         userDto.setRoles(source.getRoles());
         return userDto;
     }
+
 }

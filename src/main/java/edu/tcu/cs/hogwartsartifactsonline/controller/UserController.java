@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
     private UserService service;
 
     private UserDtoToUser userDtoToUser; // used to convert userDto to user
@@ -71,4 +72,5 @@ public class UserController {
         service.deleteById(id);
         return new Result(true, StatusCode.SUCCESS, "Delete Success");
     }
+
 }

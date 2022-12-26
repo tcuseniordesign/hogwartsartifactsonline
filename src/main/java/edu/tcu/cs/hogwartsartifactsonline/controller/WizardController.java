@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/wizards")
 public class WizardController {
+
     private WizardService service;
 
     public WizardController(WizardService service) {
@@ -49,4 +50,5 @@ public class WizardController {
         service.assignArtifact(wizardId, artifactId);
         return new Result(true, StatusCode.SUCCESS, "Artifact Assignment Success");
     }
+
 }

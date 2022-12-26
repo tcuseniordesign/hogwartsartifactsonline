@@ -17,6 +17,7 @@ import java.io.IOException;
  */
 @Component
 public class CustomBearerTokenAccessDeniedHandler implements AccessDeniedHandler {
+
     @Autowired
     @Qualifier("handlerExceptionResolver")
     private HandlerExceptionResolver resolver;
@@ -24,4 +25,5 @@ public class CustomBearerTokenAccessDeniedHandler implements AccessDeniedHandler
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
         resolver.resolveException(request, response, null, accessDeniedException);
     }
+
 }

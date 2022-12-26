@@ -71,4 +71,5 @@ public class ArtifactController {
         artifactService.delete(artifactId);
         return new Result(true, StatusCode.SUCCESS, "Delete Success");
     }
+
 }

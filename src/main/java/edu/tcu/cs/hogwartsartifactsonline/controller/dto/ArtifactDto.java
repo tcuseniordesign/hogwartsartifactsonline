@@ -56,4 +56,5 @@ public class ArtifactDto {
     public void setOwnerWizardId(Integer ownerWizardId) {
         this.ownerWizardId = ownerWizardId;
     }
+
 }

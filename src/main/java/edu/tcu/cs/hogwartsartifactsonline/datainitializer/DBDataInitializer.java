@@ -102,6 +102,6 @@ public class DBDataInitializer implements CommandLineRunner {
         userService.save(u1);
         userService.save(u2);
         userService.save(u3);
-
     }
+
 }

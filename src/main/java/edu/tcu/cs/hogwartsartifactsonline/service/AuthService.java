@@ -12,6 +12,7 @@ import java.util.Map;
 
 @Service
 public class AuthService {
+
     private JwtTokenProvider jwtTokenProvider;
 
     @Autowired
@@ -30,6 +31,6 @@ public class AuthService {
         loginResultMap.put("userInfo", hogwartsUser);
 
         return loginResultMap;
-
     }
+
 }
