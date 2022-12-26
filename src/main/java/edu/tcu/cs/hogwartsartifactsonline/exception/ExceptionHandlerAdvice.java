@@ -20,7 +20,7 @@ import java.util.Map;
 // so will inevitably not catch all things
 // @RestControllerAdvice is a syntactic sugar for @ControllerAdvice + @ResponseBody
 @RestControllerAdvice
-public class MyCustomExceptionsHandler {
+public class ExceptionHandlerAdvice {
 
     @ExceptionHandler(ObjectNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
