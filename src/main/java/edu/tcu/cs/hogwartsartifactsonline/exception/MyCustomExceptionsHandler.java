@@ -5,27 +5,23 @@ import edu.tcu.cs.hogwartsartifactsonline.domain.StatusCode;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.server.resource.InvalidBearerTokenException;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// @ControllerAdvice will only kick in if an exception is thrown from within a controller method
+// @RestControllerAdvice will only kick in if an exception is thrown from within a controller method
 // so will inevitably not catch all things
-@ControllerAdvice
+// @RestControllerAdvice is a syntactic sugar for @ControllerAdvice + @ResponseBody
+@RestControllerAdvice
 public class MyCustomExceptionsHandler {
 
-    @ResponseBody
     @ExceptionHandler(ObjectNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     Result handleObjectNotFoundHandler(ObjectNotFoundException ex) {
@@ -37,7 +33,6 @@ public class MyCustomExceptionsHandler {
      * @param ex
      * @return
      */
-    @ResponseBody
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     Result handleValidationExceptions(MethodArgumentNotValidException ex) {
@@ -51,14 +46,12 @@ public class MyCustomExceptionsHandler {
         return new Result(false, StatusCode.INVALID_ARGUMENT, "Provided arguments are invalid, see data for details.", map);
     }
 
-    @ResponseBody
     @ExceptionHandler({UsernameNotFoundException.class, BadCredentialsException.class})
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public Result handleAuthenticationException(Exception ex) {
         return new Result(false, StatusCode.UNAUTHORIZED, "username or password is incorrect.", ex.getMessage());
     }
 
-    @ResponseBody
     @ExceptionHandler(InvalidBearerTokenException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public Result handleInvalidBearerTokenException(InvalidBearerTokenException ex) {
@@ -67,7 +60,6 @@ public class MyCustomExceptionsHandler {
                 "         invalid for other reasons.", ex.getMessage());
     }
 
-    @ResponseBody
     @ExceptionHandler(AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public Result handleAccessDeniedException(AccessDeniedException ex) {
@@ -77,7 +69,6 @@ public class MyCustomExceptionsHandler {
     /**
      * Fallback handles any unhandled exceptions.
      */
-    @ResponseBody
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public Result handleOtherExceptions(Exception ex) {
