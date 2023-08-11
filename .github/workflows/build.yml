@@ -1,7 +1,7 @@
 name: Build and deploy a container to an Azure Web App
 
 env:
-  AZURE_WEBAPP_NAME: hogwartsartifactsonline  # set this to your application's name
+  AZURE_WEBAPP_NAME: hogwartsartifactsonline  # set this to your application's name.
 
 on:
   push:
