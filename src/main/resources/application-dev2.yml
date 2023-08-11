@@ -1,0 +1,23 @@
+# Initialize a Database Using Basic SQL Scripts
+jwt:
+  private.key: classpath:secrets/app.key
+  public.key: classpath:secrets/app.pub
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:hogwarts
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  sql:
+    init:
+      schema-locations: classpath*:db/initDB.sql
+      data-locations: classpath*:db/populateDB.sql
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none # must turn off Hibnerate's auto schema creation
+    show-sql: true
+server:
+   port: 80
